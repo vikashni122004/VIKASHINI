@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<robot name="BRICKS" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find BRICKS_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find BRICKS_description)/urdf/BRICKS.trans" />
+<xacro:include filename="$(find BRICKS_description)/urdf/BRICKS.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.006683271838673498 0.0023682708650185117 0.0603107509568688" rpy="0 0 0"/>
+    <mass value="1.317489111222947"/>
+    <inertia ixx="0.001739" iyy="0.005522" izz="0.006384" ixy="0.0" iyz="0.0" ixz="0.000193"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://BRICKS_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://BRICKS_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="whell_2_1">
+  <inertial>
+    <origin xyz="2.924111011937125e-07 0.005000270865018398 -3.5820948354053916e-07" rpy="0 0 0"/>
+    <mass value="0.6165375582669965"/>
+    <inertia ixx="0.00039" iyy="0.000771" izz="0.00039" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.070143 -0.057368 -0.050083" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://BRICKS_description/meshes/whell_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.070143 -0.057368 -0.050083" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://BRICKS_description/meshes/whell_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="whell_1">
+  <inertial>
+    <origin xyz="2.924111005275787e-07 -0.004999729134982152 -3.5820948369319483e-07" rpy="0 0 0"/>
+    <mass value="0.6165375582669967"/>
+    <inertia ixx="0.00039" iyy="0.000771" izz="0.00039" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.070143 0.052632 -0.050083" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://BRICKS_description/meshes/whell_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.070143 0.052632 -0.050083" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://BRICKS_description/meshes/whell_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-0.03516976044278524 2.708650183847437e-07 0.006398171828686683" rpy="0 0 0"/>
+    <mass value="0.4075053051274938"/>
+    <inertia ixx="0.000117" iyy="0.000191" izz="0.000291" ixy="0.0" iyz="0.0" ixz="-9e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.093072 -0.002368 -0.074905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://BRICKS_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.093072 -0.002368 -0.074905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://BRICKS_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev1" type="continuous">
+  <origin xyz="-0.070143 0.057368 0.050083" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="whell_2_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rev2" type="continuous">
+  <origin xyz="-0.070143 -0.052632 0.050083" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="whell_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="Rigid6" type="fixed">
+  <origin xyz="0.093072 0.002368 0.074905" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+</robot>
