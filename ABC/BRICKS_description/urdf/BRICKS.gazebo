@@ -41,10 +41,10 @@
     <updateRate>${1000}</updateRate>
 
     <!-- Name of left joint, defaults to `left_joint` -->
-    <leftJoint>whell_2_1</leftJoint>
+    <leftJoint>Rev1</leftJoint>
 
     <!-- Name of right joint, defaults to `right_joint` -->
-    <rightJoint>whell_1</rightJoint>
+    <rightJoint>Rev2</rightJoint>
 
     <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
     <wheelSeparation>0.5380</wheelSeparation>
@@ -68,7 +68,7 @@
     <odometryFrame>odom</odometryFrame>
 
     <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
-    <robotBaseFrame>base_footprint</robotBaseFrame>
+    <robotBaseFrame>base_link</robotBaseFrame>
 
     <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
     <odometrySource>1</odometrySource>
