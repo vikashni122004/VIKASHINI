@@ -38,7 +38,7 @@
   <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
 
     <!-- Plugin update rate in Hz -->
-    <updateRate>${update_rate}</updateRate>
+    <updateRate>${1000}</updateRate>
 
     <!-- Name of left joint, defaults to `left_joint` -->
     <leftJoint>whell_2_1</leftJoint>
